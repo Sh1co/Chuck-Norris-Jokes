@@ -16,9 +16,11 @@ void main() async {
     firebaseOptions: DefaultFirebaseOptions.currentPlatform,
   );
 
+  await initFavsCollection();
 
   SQApp.run([
     const JokesScreen("Jokes", icon: Icons.comment),
+    FavoriteJokesScreen(collection: favJokesCollection),
     UserSettings.settingsScreen(),
   ]);
 }

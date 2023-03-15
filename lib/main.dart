@@ -16,6 +16,7 @@ void main() async {
     firebaseOptions: DefaultFirebaseOptions.currentPlatform,
   );
 
+  await DeviceIdentifier.initUserID();
   await initFavsCollection();
 
   SQApp.run([

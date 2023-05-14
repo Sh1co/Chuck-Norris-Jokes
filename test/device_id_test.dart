@@ -1,12 +1,17 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tinder_with_chuck_norris/device_id.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences.setMockInitialValues({});
+
   test(
       'When device id is requested from DeviceIdentifier'
-      'then a unique presistent ID is returned', () async {
-    final prefs = await SharedPreferences.getInstance();
+      'then a unique persistent ID is returned', () async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.clear();
     await DeviceIdentifier.initUserID();
     var firstId = DeviceIdentifier.deviceId;

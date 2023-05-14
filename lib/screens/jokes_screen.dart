@@ -61,7 +61,7 @@ class JokesScreenState extends ScreenState<JokesScreen> {
 
     return Column(children: [
       SizedBox(
-        height: 450,
+        height: 390,
         child: SwipeCards(
           matchEngine: _matchEngine,
           itemBuilder: (BuildContext context, int index) {

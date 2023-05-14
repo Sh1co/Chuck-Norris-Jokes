@@ -8,6 +8,30 @@ import 'package:soar_quest/soar_quest.dart';
 part 'cn_api.g.dart';
 
 class ChuckNorrisApi {
+  static Future<List<dynamic>> getCategories() async {
+    try {
+      var response =
+          await Dio().get("https://api.chucknorris.io/jokes/categories");
+      String responseStr = response.toString();
+      final jokesCategories = [];
+      String categorie = "";
+      for (var i = 0; i < responseStr.length; i++) {
+        if (responseStr[i] == '[') {
+          continue;
+        } else if (responseStr[i] == ',' || responseStr[i] == ']') {
+          jokesCategories.add(categorie);
+          categorie = "";
+          i++;
+        } else {
+          categorie = categorie + responseStr[i];
+        }
+      }
+      jokesCategories.add("random");
+      return jokesCategories;
+    } on Exception {
+      return [];
+    }
+  }
 
   static Future<Joke> getJoke() async {
     String queryUrl = 'https://api.chucknorris.io/jokes/random';

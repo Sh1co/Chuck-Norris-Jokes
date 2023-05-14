@@ -34,7 +34,8 @@ dependencies:
   swipe_cards: ^1.0.0
   soar_quest: ^0.6.1
   firebase_core:
-  shared_preferences: ^2.0.15
+  shared_preferences: ^2.1.1
+  shared_preferences_android: ^2.1.4
 
 dev_dependencies:
   flutter_test:

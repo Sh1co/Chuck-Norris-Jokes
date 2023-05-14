@@ -46,3 +46,7 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 lib/firebase/secrets.dart
+
+
+/coverage
+/coverage_report

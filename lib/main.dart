@@ -5,6 +5,7 @@ import 'device_id.dart';
 import 'firebase/firebase_options.dart';
 import 'screens/fav_screen.dart';
 import 'screens/jokes_screen.dart';
+import 'screens/setting_screen.dart';
 
 late final SQCollection categories;
 
@@ -17,6 +18,7 @@ void main() async {
 
   await DeviceIdentifier.initUserID();
   await initFavsCollection();
+  await initSettingScreen();
 
   SQApp.run([
     const JokesScreen("Jokes", icon: Icons.comment),
